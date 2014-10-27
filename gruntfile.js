@@ -55,7 +55,7 @@ module.exports = function(grunt) {
         uglify: {
             build: {
                 src: 'js/build/production.min.js',
-                dest: 'js/build/production.min.js'
+                dest: 'js/build/scrollmate.min.js'
             }
         },
 
@@ -67,6 +67,20 @@ module.exports = function(grunt) {
                     src: ['**/*.{png,jpg,gif}'],
                     dest: 'img/'
                 }]
+            }
+        },
+
+        copy: {
+            main: {
+                files: [
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ['js/build/scrollmate.min.js'],
+                        dest: 'build/',
+                        filter: 'isFile'
+                    }
+                ]
             }
         },
 
@@ -117,7 +131,7 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     // Default Task is basically a rebuild
-    grunt.registerTask('default', ['concat', 'uglify', 'compass', 'autoprefixer', 'cssmin', 'imagemin']);
+    grunt.registerTask('default', ['concat', 'uglify', 'compass', 'autoprefixer', 'cssmin', 'imagemin', 'copy']);
 
     grunt.registerTask('dev', ['connect', 'watch']);
 
