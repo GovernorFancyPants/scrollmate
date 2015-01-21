@@ -48,13 +48,13 @@ module.exports = function(grunt) {
                     'js/vendor/*.js',
                     'js/main.js'
                 ],
-                dest: 'js/build/production.min.js'
+                dest: 'js/build/scrollmate.min.js'
             }
         },
 
         uglify: {
             build: {
-                src: 'js/build/production.min.js',
+                src: 'js/build/scrollmate.min.js',
                 dest: 'js/build/scrollmate.min.js'
             }
         },
